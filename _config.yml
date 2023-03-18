@@ -102,6 +102,6 @@ theme: pure
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: 'git'
+  type: git
   repo: https://github.com/yanZhang531/yanZhang531.github.io.git
   branch: main
