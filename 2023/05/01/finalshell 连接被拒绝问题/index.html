@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Title -->
-<title>归档 - yanZhang531&#39;s blog</title>
+<title>finalshell 连接被拒绝问题 - yanZhang531&#39;s blog</title>
 
 <!-- Icon -->
 <link rel="icon" href="https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg">
@@ -82,74 +82,65 @@
     }
 </script>
 
-                <div class="archives-container gt-bg-theme-color-second">
-    <div class="gt-post-content">
-        
-        
-            <h2 id="year-2023" class="year gt-c-content-color-first">2023</h2>
-            
-            
+                <div class="post-container">
+    <div class="post-detail gt-bg-theme-color-second gt-c-content-color-first">
+        <article class="gt-post-content">
+            <h1 class="post-title">finalshell 连接被拒绝问题</h1>
+            <div class="post-info">
+                <time class="post-time gt-c-content-color-first">
+                    · 2023-05-01 ·</time>
                 
-                    <div class="post" style="margin-left: 15px;">
-                        <a href="/2023/05/01/finalshell%20%E8%BF%9E%E6%8E%A5%E8%A2%AB%E6%8B%92%E7%BB%9D%E9%97%AE%E9%A2%98/">
-                            <div class="post-title gt-c-content-color-first">
-                                <small><b>2023-05-01</b></small>
-                                <div class="archives-post-title">finalshell 连接被拒绝问题</div>
-                            </div>
-                        </a>
-                    </div>
+                    
                 
-            
-                
-                    <div class="post" style="margin-left: 15px;">
-                        <a href="/2023/05/01/ubuntu%E4%B8%8B%E5%AE%89%E8%A3%85mysql/">
-                            <div class="post-title gt-c-content-color-first">
-                                <small><b>2023-05-01</b></small>
-                                <div class="archives-post-title">ubuntu下安装mysql</div>
-                            </div>
-                        </a>
-                    </div>
-                
-            
-                
-                    <div class="post" style="margin-left: 15px;">
-                        <a href="/2023/03/21/VMWare%E5%AE%89%E8%A3%85/">
-                            <div class="post-title gt-c-content-color-first">
-                                <small><b>2023-03-21</b></small>
-                                <div class="archives-post-title">(无标题)</div>
-                            </div>
-                        </a>
-                    </div>
-                
-            
-                
-                    <div class="post" style="margin-left: 15px;">
-                        <a href="/2023/03/18/hexo%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/">
-                            <div class="post-title gt-c-content-color-first">
-                                <small><b>2023-03-18</b></small>
-                                <div class="archives-post-title">Hello World</div>
-                            </div>
-                        </a>
-                    </div>
-                
-            
-                
-                    <div class="post" style="margin-left: 15px;">
-                        <a href="/2023/03/18/buildBlog/">
-                            <div class="post-title gt-c-content-color-first">
-                                <small><b>2023-03-18</b></small>
-                                <div class="archives-post-title">(无标题)</div>
-                            </div>
-                        </a>
-                    </div>
-                
-            
-        
-    </div>
-</div>
+            </div>
+            <hr>
+            <div class="post-content gt-c-content-color-first">
+                <h1 id="finalshell-连接被拒绝问题"><a href="#finalshell-连接被拒绝问题" class="headerlink" title="finalshell 连接被拒绝问题"></a>finalshell 连接被拒绝问题</h1><p>看教程都是centos的系统，自己安装的是ubuntu系统，查了一下是Ubuntu没有安装openssh-server的问题。</p>
+<p>Ubuntu都会默认安装openssh-client，但是没有安装openssh-server。</p>
+<p>参考了<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_61672548/article/details/124696951">finalshell连接拒绝访问</a></p>
+<p>1、安装openssh-server</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install openssh-server</span><br></pre></td></tr></table></figure>
 
-<div class="pagination-container">
+
+
+<p>2、安装openssh-client</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install openssh-client</span><br></pre></td></tr></table></figure>
+
+
+
+<p>3、配置ssh客户端</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 使用 sudo gedit /etc/ssh/ssh_config配置ssh客户端</span><br><span class="line">- 去掉PasswordAuthentication yes前面的#号，保存后退出</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgs/image-20230501170155347.png" alt="image-20230501170155347"></p>
+<p>4、配置ssh服务器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- sudo gedit /etc/ssh/sshd_config配置ssh服务器，</span><br><span class="line">- 在PermitRootLogin prohibit-password加一句PermitRootLogin yes（加了这后在finalshell等可以直接root连接虚拟机，用root连接才可以上传文件），保存退出。</span><br><span class="line">- 端口号22前面可能有#，有的去掉。</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgs/image-20230501170213555.png" alt="image-20230501170213555"></p>
+<p>5、重启ssh服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/ssh restart</span><br></pre></td></tr></table></figure>
+
+
+            </div>
+        </article>
+    </div>
+    <br>
     
+        <div class="next-prev-post">
+            
+            
+                <div class="next-post">
+                    <div class="next gt-c-content-color-first">
+                        下一篇：<a href="/2023/05/01/ubuntu%E4%B8%8B%E5%AE%89%E8%A3%85mysql/" 
+                            class="post-title gt-a-link">ubuntu下安装mysql</a>
+                    </div>
+                </div>
+            
+        </div>
+    
+    
+
+    
+
     
 </div>
 
