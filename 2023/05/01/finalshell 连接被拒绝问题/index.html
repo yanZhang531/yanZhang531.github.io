@@ -88,20 +88,37 @@
             <h1 class="post-title">(无标题)</h1>
             <div class="post-info">
                 <time class="post-time gt-c-content-color-first">
-                    · 2023-03-21 ·</time>
+                    · 2023-05-01 ·</time>
                 
                     
                 
             </div>
             <hr>
             <div class="post-content gt-c-content-color-first">
-                <p>安装goland执行.&#x2F;goland.sh，报Required tools are missing: realpath (SHELL&#x3D;&#x2F;bin&#x2F;bash PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;bin:&#x2F;usr&#x2F;bin:&#x2F;bin:&#x2F;usr&#x2F;local&#x2F;sbin:&#x2F;usr&#x2F;sbin:&#x2F;sbin:&#x2F;usr&#x2F;local&#x2F;go&#x2F;bin:&#x2F;home&#x2F;noodlesoup&#x2F;bin)</p>
-<p>问题原因：需要安装realpath</p>
-<p>centos安装是yum，ubutu是apt-get</p>
-<p>安装realpath报：<a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/centos/6.10/os/x86_64/repodata/repomd.xml">http://mirrors.aliyun.com/centos/6.10/os/x86_64/repodata/repomd.xml</a>: </p>
-<p>问题原因，原路径已没有该文件，将6.10替换成7.</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43414199/article/details/111300080">https://blog.csdn.net/qq_43414199/article/details/111300080</a></p>
-<p>修改完毕依然有一个错误<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_52895466/article/details/113561244">https://blog.csdn.net/weixin_52895466/article/details/113561244</a></p>
+                <h1 id="finalshell-连接被拒绝问题"><a href="#finalshell-连接被拒绝问题" class="headerlink" title="finalshell 连接被拒绝问题"></a>finalshell 连接被拒绝问题</h1><p>看教程都是centos的系统，自己安装的是ubuntu系统，查了一下是Ubuntu没有安装openssh-server的问题。</p>
+<p>Ubuntu都会默认安装openssh-client，但是没有安装openssh-server。</p>
+<p>参考了<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_61672548/article/details/124696951">finalshell连接拒绝访问</a></p>
+<p>1、安装openssh-server</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install openssh-server</span><br></pre></td></tr></table></figure>
+
+
+
+<p>2、安装openssh-client</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install openssh-client</span><br></pre></td></tr></table></figure>
+
+
+
+<p>3、配置ssh客户端</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 使用 sudo gedit /etc/ssh/ssh_config配置ssh客户端</span><br><span class="line">- 去掉PasswordAuthentication yes前面的#号，保存后退出</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\noodle_soup\AppData\Roaming\Typora\typora-user-images\image-20230501170155347.png" alt="image-20230501170155347"></p>
+<p>4、配置ssh服务器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- sudo gedit /etc/ssh/sshd_config配置ssh服务器，</span><br><span class="line">- 在PermitRootLogin prohibit-password加一句PermitRootLogin yes（加了这后在finalshell等可以直接root连接虚拟机，用root连接才可以上传文件），保存退出。</span><br><span class="line">- 端口号22前面可能有#，有的去掉。</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\noodle_soup\AppData\Roaming\Typora\typora-user-images\image-20230501170213555.png" alt="image-20230501170213555"></p>
+<p>5、重启ssh服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/ssh restart</span><br></pre></td></tr></table></figure>
+
 
             </div>
         </article>
@@ -112,7 +129,7 @@
             
                 <div class="prev-post">
                     <div class="prev gt-c-content-color-first">
-                        上一篇：<a href="/2023/05/01/finalshell%20%E8%BF%9E%E6%8E%A5%E8%A2%AB%E6%8B%92%E7%BB%9D%E9%97%AE%E9%A2%98/" 
+                        上一篇：<a href="/2023/05/01/ubuntu%E4%B8%8B%E5%AE%89%E8%A3%85mysql/" 
                             class="post-title gt-a-link"></a>
                     </div>
                 </div>
@@ -120,8 +137,8 @@
             
                 <div class="next-post">
                     <div class="next gt-c-content-color-first">
-                        下一篇：<a href="/2023/03/18/hello-world/" 
-                            class="post-title gt-a-link">Hello World</a>
+                        下一篇：<a href="/2023/03/21/VMWare%E5%AE%89%E8%A3%85/" 
+                            class="post-title gt-a-link"></a>
                     </div>
                 </div>
             

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Title -->
+<title>yanZhang531&#39;s blog</title>
+
+<!-- Icon -->
+<link rel="icon" href="https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg">
+
+<!-- Fonts -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@0;1&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" as="style" onload="this.onload=null, this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@0;1&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"></noscript>
+
+
+
+<!-- Style -->
+
+<link rel="stylesheet" href="/styles/main.css">
+
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-theme-pure@1.0.1/dist/main.css"> -->
+
+
+
+
+
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+
+    <meta name="generator" content="Hexo 5.4.2"></head>
+    <body>
+        <div class="main gt-bg-theme-color-first">
+            <div class="main-content">
+                <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            yanZhang531&#39;s blog
+        </div>
+    </a>
+    <button aria-label="Navbar Toggler" class="navbar-toggler" type="button" id="changeNavbar">
+        <i class="gt-c-content-color-first" style="font-size: 18px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="18px" fill="currentColor">
+                <path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" />
+            </svg>
+        </i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center; ">
+            
+                <div class="nav-item">
+                    <a href="/" class="menu gt-a-link" target="_self">首页</a>
+                </div>
+            
+                <div class="nav-item">
+                    <a href="/archives/" class="menu gt-a-link" target="_self">归档</a>
+                </div>
+            
+                <div class="nav-item">
+                    <a href="/tags/" class="menu gt-a-link" target="_self">标签</a>
+                </div>
+            
+                <div class="nav-item">
+                    <a href="/friends/" class="menu gt-a-link" target="_self">友链</a>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = function() {
+        let element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else { 
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+                <div class="post-container">
+    <div class="post-detail gt-bg-theme-color-second gt-c-content-color-first">
+        <article class="gt-post-content">
+            <h1 class="post-title">(无标题)</h1>
+            <div class="post-info">
+                <time class="post-time gt-c-content-color-first">
+                    · 2023-05-01 ·</time>
+                
+                    
+                
+            </div>
+            <hr>
+            <div class="post-content gt-c-content-color-first">
+                <h1 id="ubuntu下安装mysql"><a href="#ubuntu下安装mysql" class="headerlink" title="ubuntu下安装mysql"></a>ubuntu下安装mysql</h1><p>本文参考<a target="_blank" rel="noopener" href="https://www.jb51.net/article/172456.htm">Ubuntu18.04下安装MySQL</a></p>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><p>1、查看有没有安装MySQL：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -l | grep mysql</span><br></pre></td></tr></table></figure>
+
+<p>若什么都没显示则说明没有安装</p>
+<p>2、安装MySQL</p>
+<p>apt install mysql-server</p>
+<p><img src="C:\Users\noodle_soup\AppData\Roaming\Typora\typora-user-images\image-20230501184831805.png" alt="image-20230501184831805"></p>
+<p>等待安装完毕</p>
+<p>3、安装完成之后可以使用如下命令来检查是否安装成功：</p>
+<p>netstat -tap | grep mysql</p>
+<p><img src="C:\Users\noodle_soup\AppData\Roaming\Typora\typora-user-images\image-20230501184940146.png" alt="image-20230501184940146"></p>
+<p>如果看到有 mysql 的socket处于 LISTEN 状态则表示安装成功。</p>
+<p>4、对数据库进行初始化操作</p>
+<p>输入以下命令开始初始化</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql_secure_installation</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\noodle_soup\AppData\Roaming\Typora\typora-user-images\image-20230501185432638.png" alt="image-20230501185432638"></p>
+<p>会遇到的问题：</p>
+<p>（1）是否安装密码插件</p>
+<p><img src="C:\Users\noodle_soup\AppData\Roaming\Typora\typora-user-images\image-20230501190041684.png" alt="image-20230501190041684"></p>
+<p>（2）设置密码</p>
+<p>这一部分按正常流程来说直接设置新密码，但是我在设置时<code>报SET PASSWORD has no significance for user &#39;root&#39;@&#39;localhost&#39; as the authentication method used doesn&#39;t store authentication data in the MySQL server</code>错了，说我的身份验证数据不会存储到mysql服务器中。所以走的手动设置。解决方法见<a href="#article_top">遇到的坑</a>。</p>
+<p><img src="C:\Users\noodle_soup\AppData\Roaming\Typora\typora-user-images\image-20230501190131395.png" alt="image-20230501190131395"></p>
+<p>（3）是否移除匿名用户</p>
+<p><img src="C:\Users\noodle_soup\AppData\Roaming\Typora\typora-user-images\image-20230501190908806.png" alt="image-20230501190908806"></p>
+<p>（4）是否root管理员从远程登录</p>
+<p><img src="C:\Users\noodle_soup\AppData\Roaming\Typora\typora-user-images\image-20230501190943274.png" alt="image-20230501190943274"></p>
+<p>（5）是否删除test数据库并且取消对它的访问权限？</p>
+<p><img src="C:\Users\noodle_soup\AppData\Roaming\Typora\typora-user-images\image-20230501191030098.png" alt="image-20230501191030098"></p>
+<p>（6）是否刷新授权表，让初始化后的设定立即生效？</p>
+<p><img src="C:\Users\noodle_soup\AppData\Roaming\Typora\typora-user-images\image-20230501191116578.png" alt="image-20230501191116578"></p>
+<p>（7）成功</p>
+<p>显示All done! 的时候就表示安装成功</p>
+<h3 id="检查mysql服务状态"><a href="#检查mysql服务状态" class="headerlink" title="检查mysql服务状态"></a>检查mysql服务状态</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status mysql</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\noodle_soup\AppData\Roaming\Typora\typora-user-images\image-20230501191312787.png" alt="image-20230501191312787"></p>
+<p>显示active(running)即表示成功</p>
+<p>此时可以通过<code>mysql -u root -p</code>命令登录mysql了</p>
+<h2 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h2><p><a id="article_top"></a></p>
+<h3 id="错误信息"><a href="#错误信息" class="headerlink" title="错误信息"></a>错误信息</h3><p>遇到<code>SET PASSWORD has no significance for user &#39;root&#39;@&#39;localhost&#39; as the authentication method used doesn&#39;t store authentication data in the MySQL server.</code>错误</p>
+<h3 id="错误解决"><a href="#错误解决" class="headerlink" title="错误解决"></a>错误解决</h3><p>首次进入mysql，并且手动设置密码：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@LNMP:~# mysql</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash">ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED WITH mysql_native_password by <span class="string">&#x27;mynewpassword&#x27;</span>;</span></span><br><span class="line">Query OK, 0 rows affected (0.02 sec)</span><br></pre></td></tr></table></figure>
+
+<p>设置完毕后再重新输入<code>mysql_secure_installation</code>，即以上安装步骤的第四步，继续进行。</p>
+
+            </div>
+        </article>
+    </div>
+    <br>
+    
+        <div class="next-prev-post">
+            
+            
+                <div class="next-post">
+                    <div class="next gt-c-content-color-first">
+                        下一篇：<a href="/2023/05/01/finalshell%20%E8%BF%9E%E6%8E%A5%E8%A2%AB%E6%8B%92%E7%BB%9D%E9%97%AE%E9%A2%98/" 
+                            class="post-title gt-a-link"></a>
+                    </div>
+                </div>
+            
+        </div>
+    
+    
+
+    
+
+    
+</div>
+
+                <div class="site-footer gt-c-content-color-first">
+    <div class="footer-main">
+        <!-- 建议保留版权信息或者添加主题信息到友链，感谢您的理解 -->
+        <!-- 文件位置：layout/_includes/footer.ejs -->
+        <span style="text-align: right; float: right;">Theme <a 
+            href="https://github.com/renbaoshuo/hexo-theme-pure" target="_blank">Pure</a> | Powered by <a 
+            href="https://hexo.io" target="_blank">Hexo</a></span>
+        <span style="text-align: left;">To be a better me...
+</span>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </body>
+</html>
